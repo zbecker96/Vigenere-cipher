@@ -33,7 +33,7 @@ def cipherText(string, key):
     for index in range(len(string)):
 
         current = string[index]
-        current_key_index = alphabet.find(key[index % len(key)])
+        current_key_index = alphabet.find(key[index ])
         if string[index] != " ":
             x = chr(( (ord(current) + current_key_index) % 26 + ord('A')))
             cipher_text += x
@@ -53,7 +53,7 @@ def originalText(cipher_text, key):
     for index in range(len(cipher_text)):
 
         current = cipher_text[index]
-        current_key_index = alphabet.find(key[index % len(key)])
+        current_key_index = alphabet.find(key[index])
 
         if cipher_text[index] != " ":
             x = chr(((ord(current) - current_key_index) % 26 + ord('A')))
