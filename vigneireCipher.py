@@ -34,9 +34,13 @@ def cipherText(string, key):
 
         current = string[index]
         current_key_index = alphabet.find(key[index % len(key)])
-        x = chr(( (ord(current) + current_key_index) % 26 + ord('A')))
+        if string[index] != " ":
+            x = chr(( (ord(current) + current_key_index) % 26 + ord('A')))
+            cipher_text += x
+        else:
+            cipher_text += current #adds the space
 
-        cipher_text += x
+
 
     return "".join(cipher_text)
 
@@ -51,15 +55,18 @@ def originalText(cipher_text, key):
         current = cipher_text[index]
         current_key_index = alphabet.find(key[index % len(key)])
 
+        if cipher_text[index] != " ":
+            x = chr(((ord(current) - current_key_index) % 26 + ord('A')))
+            orig_text += x
+        else:
+            orig_text += current  # adds the space
 
-        x = chr(((ord(current) - current_key_index) % 26 + ord('A')))
 
-        orig_text += x
 
     return "" . join(orig_text)
 
 def main():
-    string = input("enter a message")
+    string = input("enter a message").upper()
     keyword = "LOL"
     key = generateKey(string, keyword)
 
