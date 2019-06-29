@@ -2,7 +2,9 @@ def generateKey(string, keyword):
 
     newKeyword = ""
     count = 0
-
+       #coule be rewritten with just using keyword[i % len(keyword) ] but I just wanted to make my 
+       #students learn how to use strings not everyone was killing it in the programming game so I tried to make 
+    #things intuitive and not need a big math background
     if len(keyword) < len(string):
         while len(newKeyword) < len(string):
             newKeyword += keyword[count]
